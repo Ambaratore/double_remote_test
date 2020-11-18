@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+<form method="post" action="/contact">
+  <label for="fname">First name:</label><br>
+  <input type="text"  name="fname" value="<%= qs.name %>"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" name="lname" value="<%= qs.surname %>"><br>
+  <label for="email">Email:</label><br>
+  <input type="text" name="email" value="<%= qs.email %>"><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,1 +1,1 @@
-**/node_modules # exclude any /tmp files or folders at any level in the /src/ folder.
+node_modules

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+<div id="todo-table">
+  <form method="post" action="/todo">
+    <input type="text"  name="newItem" value="write here"><br>
+    <button type="submit" name="button">Add Item</button>
+  </form>
+  <ul>
+    <% data.forEach( (obj) => { item = obj.item %>
+    <li><%= item %></li>
+    <% })%>
+  </ul>
+</div>
+</body>
+</html>
