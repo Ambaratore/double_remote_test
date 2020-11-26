@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const schema = mongoose.Schema;
 // create a schema
 const NTutorialSchema = new schema({

@@ -45,6 +45,16 @@ INSTALLED_APPS = [
     'tutorials',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
+
 MIDDLEWARE = [
     # CORS
     'corsheaders.middleware.CorsMiddleware',
@@ -62,6 +72,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8081',
 )
+
 
 ROOT_URLCONF = 'DjangoRestApiMongoDB.urls'
 

@@ -6,8 +6,26 @@ from rest_framework import status
 
 from tutorials.models import Tutorial
 from tutorials.serializers import TutorialSerializer
-from rest_framework.decorators import api_view
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.response import Response
 
+
+@api_view(['GET'])
+@authentication_classes((BasicAuthentication, ))
+@permission_classes((IsAuthenticated,))
+def example_view(request, format=None):
+    print(request);
+    content = {
+        'user': 'test',  # `django.contrib.auth.User` instance.
+        'auth': 'test',  # None
+    }
+    # content = {
+    #     'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+    #     'auth': unicode(request.auth),  # None
+    # }
+    return Response(content)
 
 @api_view(['GET', 'POST', 'DELETE'])
 def tutorial_list(request):
